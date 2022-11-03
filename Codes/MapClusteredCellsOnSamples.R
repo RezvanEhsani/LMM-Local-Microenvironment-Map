@@ -41,8 +41,8 @@ MapClusteredCellsOnSamples <- function(Data,
         Data <- merge(Data, DatCells, by=c("sample_id", "cell_id"), all.x=TRUE)
 
         Data$Clusters <- as.character(Data$Clusters)
-        Data$Clusters[is.na(Data$Clusters)] <- 0
-        Data$Clusters[Data$Clusters==0] <- Data$MetaCellType
+        Data$Clusters[is.na(Data$Clusters)] <- Data$MetaCellType
+        #Data$Clusters[Data$Clusters==0] <- Data$MetaCellType
         Data$Clusters[Data$Clusters==0] <- "NonTumor"
         Data$Clusters[Data$Clusters==1] <- "Tumor"
 
